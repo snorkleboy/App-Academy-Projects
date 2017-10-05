@@ -1,4 +1,5 @@
 require_relative "board"
+require "byebug"
 
 class SudokuGame
   def self.from_file(filename)
@@ -48,11 +49,12 @@ class SudokuGame
 
   def play_turn
     board.render
-    val = get_pos
-    pos = get_val
-    board[pos] = val
-  end
+    pos = get_pos
+    val = get_val
 
+    board[pos] = val
+
+  end
   def run
     play_turn until solved?
     board.render
