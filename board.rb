@@ -8,6 +8,7 @@ class Board
   end
 
   def self.from_file(filename)
+
     rows = File.readlines(filename).map(&:chomp)
     tiles = rows.map do |row|
       nums = row.split("").map { |char| Integer(char) }
@@ -27,6 +28,7 @@ class Board
   end
 
   def []=(pos, value)
+
     x, y = pos
     tile = grid[x][y]
     tile.value = value
